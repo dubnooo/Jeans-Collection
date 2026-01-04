@@ -1,11 +1,21 @@
-// --- КЕРУВАННЯ КОШИКОМ ---
+// --- ЛОГІКА КОШИКА ---
 
-function addToCart(name, price) {
+function addToCart(name, price, img) {
     let cart = JSON.parse(localStorage.getItem('eloriaCart')) || [];
-    cart.push({ name: name, price: price });
+    cart.push({ name: name, price: price, img: img });
     localStorage.setItem('eloriaCart', JSON.stringify(cart));
     
     updateCartCount();
+    
+    // Візуальний ефект при додаванні
+    const btn = event.target;
+    const originalText = btn.innerText;
+    btn.innerText = "Додано ✅";
+    btn.style.background = "#2ed573";
+    setTimeout(() => {
+        btn.innerText = originalText;
+        btn.style.background = "black";
+    }, 1000);
 }
 
 function updateCartCount() {
@@ -16,11 +26,12 @@ function updateCartCount() {
     }
 }
 
-// --- АНІМАЦІЇ СЕРДЕЧОК ---
+// --- СЕРДЕЧКА ТА ЗАВАНТАЖЕННЯ ---
 
 document.addEventListener('DOMContentLoaded', () => {
-    updateCartCount(); // Оновлюємо цифру при завантаженні
+    updateCartCount();
 
+    // Лайк для карток товарів
     document.querySelectorAll('.product-heart').forEach(heart => {
         heart.addEventListener('click', function () {
             this.classList.toggle('liked');
@@ -31,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Пульсація серця в шапці
     const mainHeart = document.querySelector('header .heart');
     if (mainHeart) {
         mainHeart.addEventListener('click', function () {
