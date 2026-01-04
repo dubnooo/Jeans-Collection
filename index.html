@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElOria - Jeans Collection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-left">
+            <div class="header-title">ElOria</div>
+        </div>
+        <div class="header-right">
+            <div class="heart">♡</div>
+            <a href="pay.html" class="cart-link">
+                🛒 <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="products-grid">
+        <div class="product">
+            <div class="img-wrapper">
+                <img src="https://i.pinimg.com/736x/60/19/3d/60193d9e300e2eaf2ded25b576e1dd49.jpg" alt="Jeans 1">
+                <div class="product-heart">♡</div>
+            </div>
+            <div class="price">400.99 ₴</div>
+            <button class="buy-btn" onclick="addToCart('Джинси Classic', 400.99)">Купити</button>
+        </div>
+
+        <div class="product">
+            <div class="img-wrapper">
+                <img src="https://i.pinimg.com/736x/60/19/3d/60193d9e300e2eaf2ded25b576e1dd49.jpg" alt="Jeans 2">
+                <div class="product-heart">♡</div>
+            </div>
+            <div class="price">250.99 ₴</div>
+            <button class="buy-btn" onclick="addToCart('Джинси Urban', 250.99)">Купити</button>
+        </div>
+        
+        </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
